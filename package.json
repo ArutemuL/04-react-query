@@ -13,6 +13,7 @@
     "@tanstack/react-query": "^5.100.14",
     "@tanstack/react-query-devtools": "^5.100.14",
     "axios": "^1.16.1",
+    "babel": "^5.8.38",
     "formik": "^2.4.9",
     "modern-normalize": "^3.0.1",
     "react": "^19.2.6",
