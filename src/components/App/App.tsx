@@ -16,7 +16,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  async function handkeSearch(newQuery: string) {
+  async function handleSearch(newQuery: string) {
     setQuery(newQuery);
     setPage(1);
   }
@@ -29,17 +29,17 @@ function App() {
   });
 
   useEffect(() => {
-    if (data?.result.length === 0) {
+    if (data?.results.length === 0) {
       toast.error("No movies found for your request.");
     }
   }, [data]);
-  const totalPages = data?.totalPage;
+  const totalPages = data?.total_pages;
 
   return (
     <>
       <Toaster position="top-center" />
 
-      <SearchBar onSubmit={handkeSearch} />
+      <SearchBar onSubmit={handleSearch} />
 
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
@@ -70,7 +70,7 @@ function App() {
         />
       )}
 
-      {data && <MovieGrid movies={data.result} onSelect={setSelectedMovie} />}
+      {data && <MovieGrid movies={data.results} onSelect={setSelectedMovie} />}
 
       {selectedMovie && (
         <MovieModal
