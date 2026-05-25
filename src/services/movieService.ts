@@ -13,7 +13,7 @@ async function fetchMovies(
   query: string,
   page: number
 ): Promise<FetchMoviesResponse> {
-  const response = await axios.get(BASE_URL, {
+  const response = await axios.get<FetchMoviesResponse>(BASE_URL, {
     params: { query, page },
     headers: {
       Authorization: `Bearer ${myKey}`,
